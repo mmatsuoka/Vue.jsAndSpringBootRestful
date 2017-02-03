@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    </head>
+    <body>
+        <div id='app' v-bind:style="{'border': (isValid ? '' : '1px solid red')}"  >
+            <p>{{ message }}</p>
+            <br/>
+
+            <p>
+                名前：<input v-model="name"><br/>
+                lazy:<input v-model.lazy="name"><br/>
+                バーコード:<input type="text" name="barcodeData" v-on:input="sendData($event.target.value)" >
+            </p>
+
+            <p v-show="!isValid">
+                メッセージを入力してください
+            </p>
+
+            <div>
+                <p>{{ name }} は {{ price }}円(税込み：{{ priceWithTax }})</p>
+            </div>
+            <div>
+
+
+                <li v-for="item in items">
+                    <p>{{ item.name }} は {{ item.price }}円</p>
+                </li>
+            </div>
+
+            <div id="fruits-list">
+                <fruits-list-title></fruits-list-title>
+            </div>
+
+        </div>
+
+        <script  type="text/javascript" src="lib/vue.js"></script>
+                <script  type="text/javascript" src="component.js"></script>
+        <script  type="text/javascript" src="hello.js"></script>
+
+    </body>
+</html>
